@@ -8,6 +8,7 @@ const AddBlockRepo = (data) => {
 };
 exports.AddBlockRepo = AddBlockRepo;
 const GetChainRepo = () => {
+    console.log("IsValid Chain : ", blockChain_store_1.BLOCK_CHAIN.isValidChain(blockChain_store_1.BLOCK_CHAIN.getChain()));
     return blockChain_store_1.BLOCK_CHAIN.getChain();
 };
 exports.GetChainRepo = GetChainRepo;

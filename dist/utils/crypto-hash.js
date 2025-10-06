@@ -9,7 +9,7 @@ const CRYPTO_HASH_HANDLER = (...args) => {
     const hash = crypto_1.default.createHash('sha256');
     const result = args.reduce((a, b) => {
         return a + String(b);
-    }, '');
+    }, 0);
     hash.update(result);
     return hash.digest('hex');
 };

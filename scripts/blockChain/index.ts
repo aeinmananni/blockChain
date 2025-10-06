@@ -2,6 +2,7 @@ import { GENERATE_NEW_BLOCK_HANDLER } from '../../utils/generate-new-block.util'
 import { GENESIS } from '../../utils/genesis.util';
 import { BlockType } from '../models/script.model';
 import { CRYPTO_HASH_HANDLER } from '../../utils/crypto-hash';
+import { ISVALID_CHAIN_HANDLER } from "../../utils/isValid-chain";
 export const BlockChain = () => {
   let chain: BlockType[] = [GENESIS];
 
@@ -11,21 +12,18 @@ export const BlockChain = () => {
   };
 
   const isValidChain = (chain: BlockType[]) => {
-    if (chain[0] !== GENESIS) return false;
-    for (let i = 1; i < chain.length; i++) {
-      const block = chain[i];
-      const actualLastHash = chain[i].hash;
-      const { hash, lastHash, timestamp, data } = block;
+    return ISVALID_CHAIN_HANDLER(chain, GENESIS);
+  };
 
-      if (lastHash !== actualLastHash) return false;
-      if (hash !== CRYPTO_HASH_HANDLER(lastHash, data, timestamp)) return false;
-    }
+  const replaceChain = (chainInput: BlockType[]) => {
+    if (chainInput.length <= chain.length) return false;
+    if (!isValidChain(chainInput)) return false;
 
-    return true;
+    chain = [...chainInput];
   };
   const getChain = (): BlockType[] => {
     return chain;
   };
 
-  return { addBlock, getChain, isValidChain };
+  return { addBlock, getChain, isValidChain, replaceChain };
 };

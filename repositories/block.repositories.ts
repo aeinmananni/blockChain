@@ -7,5 +7,9 @@ export const AddBlockRepo = <T>(data: T) => {
 };
 
 export const GetChainRepo = () => {
+  console.log(
+    "IsValid Chain : ",
+    BLOCK_CHAIN.isValidChain(BLOCK_CHAIN.getChain())
+  );
   return BLOCK_CHAIN.getChain();
 };
