@@ -1,6 +1,6 @@
 "use strict";
 Object.defineProperty(exports, "__esModule", { value: true });
-exports.GENESIS = void 0;
+exports.GENESIS = exports.INITIAL_DIFFICULTY = void 0;
 /**
  * محافظت از Genesis Block:
 
@@ -8,11 +8,12 @@ exports.GENESIS = void 0;
  *
  *
  */
+exports.INITIAL_DIFFICULTY = 3;
 exports.GENESIS = {
     timestamp: Date.now(),
     lastHash: "Gen-lastHash",
     hash: "Gen-hash",
     data: "Gen-data",
-    difficulty: 3,
+    difficulty: exports.INITIAL_DIFFICULTY,
     nonce: 0,
 };

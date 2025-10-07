@@ -1,7 +1,6 @@
 import { GENERATE_NEW_BLOCK_HANDLER } from '../../utils/generate-new-block.util';
-import { GENESIS } from '../../utils/genesis.util';
-import { BlockType } from '../models/script.model';
-import { CRYPTO_HASH_HANDLER } from '../../utils/crypto-hash';
+import { GENESIS } from "../../config/genesis.config";
+import { BlockType } from "../models/script.model";
 import { ISVALID_CHAIN_HANDLER } from "../../utils/isValid-chain";
 export const BlockChain = () => {
   let chain: BlockType[] = [GENESIS];
