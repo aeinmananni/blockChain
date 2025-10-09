@@ -9,6 +9,7 @@ import { BlockType } from "../scripts/models/script.model";
  */
 
 export const INITIAL_DIFFICULTY = 3;
+export const MINE_RATE = 1000; // milliseconds
 
 export const GENESIS: Readonly<BlockType> = {
   timestamp: Date.now(),
