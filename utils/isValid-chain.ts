@@ -9,9 +9,11 @@ export const ISVALID_CHAIN_HANDLER = (
   for (let i = 1; i < chain.length; i++) {
     const block = chain[i];
     const actualLastHash = chain[i - 1].hash;
+    const lastDifficulty = chain[i - 1].difficulty;
     const { hash, lastHash, timestamp, data, difficulty, nonce } = block;
 
     if (lastHash !== actualLastHash) return false;
+    if (Math.abs(lastDifficulty - difficulty) > 1) return false;
     if (
       hash !== CRYPTO_HASH_HANDLER(lastHash, data, timestamp, difficulty, nonce)
     )

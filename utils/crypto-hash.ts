@@ -1,5 +1,5 @@
 import crypto from 'crypto';
-
+import hex_to_binary from "hex-to-binary";
 export const CRYPTO_HASH_HANDLER = (...args: unknown[]): string => {
   const hash = crypto.createHash('sha256');
   const result = args.reduce((a, b) => {
