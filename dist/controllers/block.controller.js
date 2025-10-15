@@ -14,10 +14,10 @@ const block_repositories_1 = require("../repositories/block.repositories");
 const async_handler_util_1 = require("../utils/async-handler.util");
 exports.handelAddBlockController = (0, async_handler_util_1.asyncHandler)((req, res) => __awaiter(void 0, void 0, void 0, function* () {
     const data = req.body;
-    const result = (0, block_repositories_1.AddBlockRepo)(data);
+    const result = yield (0, block_repositories_1.AddBlockRepo)(data);
     res.status(200).send(result);
 }));
 exports.handelGetBlocksController = (0, async_handler_util_1.asyncHandler)((req, res) => __awaiter(void 0, void 0, void 0, function* () {
-    const result = (0, block_repositories_1.GetChainRepo)();
+    const result = yield (0, block_repositories_1.GetChainRepo)();
     res.status(200).send(result);
 }));

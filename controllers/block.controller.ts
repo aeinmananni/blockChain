@@ -8,7 +8,7 @@ export const handelAddBlockController = asyncHandler(
   async (req: Request, res: Response) => {
     const data = req.body;
 
-    const result: boolean = AddBlockRepo<UsersType>(data);
+    const result: boolean = await AddBlockRepo<UsersType>(data);
 
     res.status(200).send(result);
   }
@@ -16,7 +16,7 @@ export const handelAddBlockController = asyncHandler(
 
 export const handelGetBlocksController = asyncHandler(
   async (req: Request, res: Response) => {
-    const result: BlockType[] = GetChainRepo();
+    const result: BlockType[] = await GetChainRepo();
 
     res.status(200).send(result);
   }
